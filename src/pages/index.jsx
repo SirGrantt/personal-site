@@ -26,7 +26,7 @@ const Index = ({ data }) => {
     <Layout>
       <Helmet title={'Grant Elmer'} />
       <Header title="Grant Elmer" job="Software Engineer">About Me</Header>
-      {/* <PostWrapper>
+      <PostWrapper>
         {edges.map(({ node }) => (
           <PostList
             key={node.id}
@@ -37,7 +37,7 @@ const Index = ({ data }) => {
             excerpt={node.excerpt}
           />
         ))}
-      </PostWrapper> */}
+      </PostWrapper>
     </Layout>
   );
 };

@@ -6,7 +6,7 @@ import profilePic from '../../static/logo/profile-pic.jpg';
 
 const Wrapper = styled.header`
   -webkit-clip-path: polygon(100% 0, 0 0, 0 70%, 50% 100%, 100% 70%);
-  clip-path: polygon(100% 0, 0 0, 0 70%, 50% 75%, 100% 70%);
+  clip-path: polygon(100% 0, 0 0, 0 70%, 50% 100%, 100% 70%);
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     -webkit-clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
     clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
@@ -24,63 +24,69 @@ const Wrapper = styled.header`
 `;
 
 const Pic = styled.img`
-  position: absolute;
+  position: relative;
+  display: block;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
   top: 0px;
   left: 0px;
-  width: 100%;
-  height: 100%;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
-  object-position: center center;
   opacity: 1;
   transition: opacity 0.5s ease 0s;
   border-radius: 50%;
+  box-shadow: 2px 2px 4px;
 `;
 
 const PicWrapper = styled.div`
   position: relative;
-  overflow: hidden;
+  display: block;
 `;
 
-const StyDiv = styled.div`
-  width: 100%;
-  padding-bottom: 100%;
+const StyP = styled.p`
+  margin-left: auto;
+  margin-rght: auto;
+  margin-bottom: 0 !important;
+  text-align: center;
+  color: white;
+  font-size: 2em;
 `;
 
 const Text = styled.div`
   color: ${props => props.theme.colors.white.base};
   z-index: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
+
   text-align: center;
   width: 100%;
   max-width: ${props => props.theme.layout.base};
-  padding: 0 2rem;
   margin-bottom: 3rem;
   align-items: center;
 `;
 
 const Subtitle = styled.p`
-  max-width: 650px;
-  color: ${props => props.theme.colors.white.light};
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  font-size: 1em;
+  text-align: center;
+  color: white;
 `;
 
 const Header = ({ children, title, job, cover }) => (
   <Wrapper>
-    {/* <Img fluid={cover || {} || [] || ''} /> */}
     <PicWrapper>
-      <StyDiv>
       <Pic src={profilePic} alt="Grant Elmer" />
-      </StyDiv>
+      <StyP>{title}</StyP>
+      <Subtitle>{job}</Subtitle>
     </PicWrapper>
-    <Text>
-      <h1>{title}</h1>
-      <h5>{job}</h5>
-      {children && <Subtitle>{children}</Subtitle>}
-    </Text>
   </Wrapper>
 );
 
