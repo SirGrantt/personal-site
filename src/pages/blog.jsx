@@ -8,9 +8,8 @@ import { Layout } from 'layouts';
 const Blog = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
-    <Layout>
+    <Layout blackText={true}>
       <Helmet title={'Blog Page'} />
-      <Header title="Blog Page">Gatsby Tutorial Starter</Header>
       {edges.map(({ node }) => (
         <BlogList
           key={node.id}

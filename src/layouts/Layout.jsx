@@ -51,11 +51,11 @@ injectGlobal`
   ${headroom}
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ blackText, children }) => (
   <ThemeProvider theme={theme}>
     <Fragment>
       <SEO />
-      <NavBar />
+      <NavBar blackText={blackText} />
       {children}
       <Footer />
     </Fragment>

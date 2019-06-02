@@ -4,7 +4,48 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from 'react-emotion';
 import { Header, PostList } from 'components';
+import profilePic from '../../static/logo/profile-pic.jpg';
 import { Layout } from 'layouts';
+
+const Pic = styled.img`
+  position: relative;
+  display: block;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0px;
+  left: 0px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.5s ease 0s;
+  border-radius: 50%;
+  box-shadow: 2px 2px 4px;
+`;
+
+const PicWrapper = styled.div`
+  position: relative;
+  display: block;
+`;
+
+const Subtitle = styled.p`
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  font-size: 1em;
+  text-align: center;
+  color: white;
+`;
+
+const StyP = styled.p`
+  margin-left: auto;
+  margin-rght: auto;
+  margin-bottom: 0 !important;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+`;
 
 const PostWrapper = styled.div`
   display: flex;
@@ -26,18 +67,11 @@ const Index = ({ data }) => {
     <Layout>
       <Helmet title={'Grant Elmer'} />
       <Header title="Grant Elmer" job="Software Engineer">About Me</Header>
-      <PostWrapper>
-        {edges.map(({ node }) => (
-          <PostList
-            key={node.id}
-            cover={node.frontmatter.cover.childImageSharp.fluid}
-            path={node.frontmatter.path}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            excerpt={node.excerpt}
-          />
-        ))}
-      </PostWrapper>
+      <PicWrapper>
+        <Pic src={profilePic} alt="Grant Elmer" />
+        <StyP>Grant Elmer</StyP>
+        <Subtitle>Software Engineer</Subtitle>
+      </PicWrapper>
     </Layout>
   );
 };

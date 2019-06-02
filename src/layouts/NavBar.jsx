@@ -18,7 +18,8 @@ const Nav = styled.nav`
   font-size: 1.1rem;
   align-items: center;
   a {
-    color: ${props => props.theme.colors.white.base};
+    color: ${props =>
+      props.blackText ? '#000000' : props.theme.colors.white.base};
     margin-left: 2rem;
     transition: all ${props => props.theme.transitions.default.duration};
     &:hover {
@@ -27,15 +28,14 @@ const Nav = styled.nav`
   }
 `;
 
-const NavBar = () => (
+const NavBar = ({blackText}) => (
   <Headroom calcHeightOnResize disableInlineStyles>
     <StyledLink to="/">
       <img src={logo} alt="Gatsby Logo" />
     </StyledLink>
-    <Nav>
+    <Nav blackText={blackText}>
       <Link to="/">Home</Link>
       <Link to="/blog">Blog</Link>
-      <Link to="/about">About</Link>
     </Nav>
   </Headroom>
 );
